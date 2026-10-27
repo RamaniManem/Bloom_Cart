@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#244b38">
+    <title>BloomCart | Flowers for Every Feeling</title>
+    <meta name="description" content="Explore beautiful flowers, shop ready-made bouquets, or create your own custom flower arrangement at BloomCart.">
+
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="announcement">
+        🌷 A little flower, a lot of happiness — find your perfect bouquet!
+    </div>
+
+    <header class="header">
+        <a href="#home" class="logo">
+            <span class="logo-icon">❀</span>
+            BloomCart<span class="logo-dot">.</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation" aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="navigation" id="navigation">
+            <a href="#home">Home</a>
+            <a href="#flowers">Flowers</a>
+            <a href="#custom">Build a Bouquet</a>
+            <a href="#ready-made">Bouquets</a>
+            <a href="#about">Our Story</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="icon-button" id="wishlistHeader" aria-label="View wishlist">
+                ♡ <span id="wishlistCount">0</span>
+            </button>
+            <button class="cart-button" id="openCart">
+                🛍️ Cart <span id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="eyebrow">FLOWERS THAT SPEAK YOUR HEART</span>
+                <h1>Every flower tells a <em>beautiful story.</em></h1>
+                <p>
+                    Discover your favorite blooms, create a bouquet of your own,
+                    and make every moment a little more magical.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#flowers" class="button button-primary">Explore Flowers →</a>
+                    <a href="#custom" class="button button-outline">Create Your Bouquet ✿</a>
+                </div>
+                <div class="hero-note">🌼 Handpicked inspiration for every occasion</div>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1100&q=85"
+                    alt="Beautiful colorful flower bouquet"
+                >
+                <div class="floating-card">
+                    <span>🌸</span>
+                    <div>
+                        <strong>Made with love</strong>
+                        <small>Picked just for you</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <div>🌷 <span>Beautiful Blooms</span></div>
+            <div>💐 <span>Custom Bouquets</span></div>
+            <div>💚 <span>Made for Your Moments</span></div>
+            <div>🎁 <span>Thoughtful Gifts</span></div>
+        </section>
+
+        <section class="section collection-section" id="flowers">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">FIND YOUR FAVORITE</span>
+                    <h2>A garden of <em>possibilities</em></h2>
+                    <p>Choose a flower, pick a color, and find something lovely.</p>
+                </div>
+                <span class="flower-count" id="flowerCount">24+ blooms</span>
+            </div>
+
+            <div class="shop-toolbar">
+                <label class="search-box">
+                    <span>⌕</span>
+                    <input type="search" id="searchInput"
+                           placeholder="Search roses, tulips, lilies..."
+                           aria-label="Search flowers">
+                </label>
+
+                <select id="colorFilter" aria-label="Filter by color">
+                    <option value="all">All Colors</option>
+                    <option value="Red">Red</option>
+                    <option value="Pink">Pink</option>
+                    <option value="White">White</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Purple">Purple</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Mixed">Mixed Colors</option>
+                </select>
+
+                <select id="typeFilter" aria-label="Filter by flower type">
+                    <option value="all">All Flowers</option>
+                    <option value="Rose">Roses</option>
+                    <option value="Tulip">Tulips</option>
+                    <option value="Lily">Lilies</option>
+                    <option value="Sunflower">Sunflowers</option>
+                    <option value="Orchid">Orchids</option>
+                    <option value="Daisy">Daisies</option>
+                    <option value="Carnation">Carnations</option>
+                    <option value="Gerbera">Gerberas</option>
+                </select>
+
+                <select id="sortFilter" aria-label="Sort flowers">
+                    <option value="featured">Featured</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                    <option value="name">Name: A to Z</option>
+                </select>
+            </div>
+
+            <div class="category-chips" id="categoryChips">
+                <button class="chip active" data-category="all">🌸 All Flowers</button>
+                <button class="chip" data-category="Rose">🌹 Roses</button>
+                <button class="chip" data-category="Tulip">🌷 Tulips</button>
+                <button class="chip" data-category="Lily">🤍 Lilies</button>
+                <button class="chip" data-category="Sunflower">🌻 Sunflowers</button>
+                <button class="chip" data-category="Orchid">💜 Orchids</button>
+                <button class="chip" data-category="Daisy">🌼 Daisies</button>
+                <button class="chip" data-category="Carnation">🌺 Carnations</button>
+                <button class="chip" data-category="Gerbera">🌼 Gerberas</button>
+            </div>
+
+            <div class="product-grid" id="productGrid" aria-live="polite"></div>
+
+            <p class="empty-state" id="emptyState" hidden>
+                🌱 No flowers found. Try another search or filter!
+            </p>
+
+            <div class="load-more-wrap">
+                <button class="button button-outline" id="loadMore">
+                    Explore More Flowers ↓
+                </button>
+            </div>
+        </section>
+
+        <section class="custom-section" id="custom">
+            <div class="custom-intro">
+                <span class="eyebrow">YOUR FLOWERS, YOUR STORY</span>
+                <h2>Create a bouquet that is <em>uniquely yours.</em></h2>
+                <p>
+                    Pick your favorite flowers, adjust the quantities,
+                    and build a combination that matches your feelings.
+                </p>
+                <div class="custom-perks">
+                    <p>🌹 Mix your favorite flower varieties</p>
+                    <p>🎨 Combine colors to match your style</p>
+                    <p>💐 See your bouquet and price update instantly</p>
+                </div>
+            </div>
+
+            <div class="builder-card">
+                <div class="builder-header">
+                    <div>
+                        <span class="eyebrow">BOUQUET STUDIO</span>
+                        <h3>Your dream bouquet</h3>
+                    </div>
+                    <span class="builder-flower">💐</span>
+                </div>
+
+                <label class="field-label" for="builderFlower">Choose a flower</label>
+                <select id="builderFlower" class="full-input"></select>
+
+                <div class="builder-controls">
+                    <label>
+                        <span class="field-label">Quantity</span>
+                        <input type="number" id="builderQuantity"
+                               min="1" max="50" value="1">
+                    </label>
+                    <button class="button button-primary add-custom-flower" id="addCustomFlower">
+                        + Add Flower
+                    </button>
+                </div>
+
+                <div class="selected-heading">
+                    <h4>Your selection</h4>
+                    <button class="text-button" id="clearBouquet">Clear all</button>
+                </div>
+
+                <div class="custom-selection" id="customSelection">
+                    <p class="selection-empty">Your bouquet is waiting for its first flower 🌷</p>
+                </div>
+
+                <div class="bouquet-total">
+                    <div>
+                        <small>Estimated bouquet total</small>
+                        <strong id="bouquetTotal">₹0</strong>
+                    </div>
+                    <span id="bouquetStemCount">0 stems</span>
+                </div>
+
+                <button class="button button-primary full-button" id="addBouquetToCart">
+                    Add Custom Bouquet to Cart →
+                </button>
+                <p class="demo-note">Demo prices are shown in Indian rupees.</p>
+            </div>
+        </section>
+
+        <section class="section ready-section" id="ready-made">
+            <div class="section-heading centered-heading">
+                <div>
+                    <span class="eyebrow">LOVE IN EVERY PETAL</span>
+                    <h2>Ready-made <em>bouquets</em></h2>
+                    <p>Beautiful combinations for all the moments that matter.</p>
+                </div>
+            </div>
+
+            <div class="occasion-grid" id="bouquetGrid"></div>
+        </section>
+
+        <section class="newsletter-section">
+            <div class="newsletter-flower">✿</div>
+            <span class="eyebrow">A LITTLE BLOOM IN YOUR INBOX</span>
+            <h2>Let happiness <em>blossom.</em></h2>
+            <p>Get floral inspiration, seasonal favorites, and special offers.</p>
+
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" id="newsletterEmail"
+                       placeholder="Enter your email address" required>
+                <button class="button button-primary" type="submit">Join Us →</button>
+            </form>
+            <small id="newsletterMessage">This demo does not send or store emails.</small>
+        </section>
+
+        <section class="about-section" id="about">
+            <div class="about-image">
+                <img
+                    src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=900&q=85"
+                    alt="Fresh flowers arranged in a vase"
+                    loading="lazy"
+                >
+            </div>
+            <div class="about-content">
+                <span class="eyebrow">A LITTLE ABOUT US</span>
+                <h2>Small petals. <em>Big feelings.</em></h2>
+                <p>
+                    At BloomCart, we believe flowers are more than beautiful.
+                    They are little reminders of love, friendship, gratitude,
+                    celebration, and hope.
+                </p>
+                <p>
+                    Whether you choose a ready-made arrangement or create
+                    your own bouquet, your next beautiful moment starts here.
+                </p>
+                <a href="#flowers" class="text-link">Find your flowers →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="#home" class="logo footer-logo">❀ BloomCart<span class="logo-dot">.</span></a>
+        <p>Made with ♡ and a little floral magic.</p>
+        <div class="footer-links">
+            <a href="#flowers">Shop Flowers</a>
+            <a href="#custom">Custom Bouquet</a>
+            <a href="#ready-made">Ready-made Bouquets</a>
+        </div>
+        <small>© <span id="currentYear"></span> BloomCart. Demo shopping experience.</small>
+    </footer>
+
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="cart-drawer" id="cartDrawer"
+           role="dialog" aria-modal="true" aria-labelledby="cartTitle"
+           aria-hidden="true">
+        <div class="drawer-header">
+            <div>
+                <span class="eyebrow">YOUR LOVELY PICKS</span>
+                <h2 id="cartTitle">Shopping cart</h2>
+            </div>
+            <button class="close-button" id="closeCart" aria-label="Close cart">✕</button>
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="cart-bottom">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">₹0</strong>
+            </div>
+            <p>Delivery charges, if any, are not included.</p>
+            <button class="button button-primary full-button" id="checkoutButton">
+                Review Order →
+            </button>
+            <small>Demo only — no real payment or order placement.</small>
+        </div>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
